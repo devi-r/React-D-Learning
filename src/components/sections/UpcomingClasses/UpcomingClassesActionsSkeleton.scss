@@ -1,0 +1,30 @@
+.upcoming-classes-actions-skeleton {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+
+  &__button {
+    height: 2.75rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    flex: 1;
+    min-width: 140px;
+
+    @container layout-root (max-width: 768px) {
+      flex: 1;
+      min-width: 120px;
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

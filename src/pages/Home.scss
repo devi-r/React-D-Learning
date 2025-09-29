@@ -1,0 +1,68 @@
+.home {
+  background-color: #f9fafb;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+
+  &__main {
+    // Mobile layout (up to 768px inclusive)
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%; // 100% width for mobile
+    box-sizing: border-box;
+
+    // Desktop layout (above 768px)
+    @container layout-root (min-width: 769px) {
+      flex-direction: row;
+      gap: 2rem;
+      width: auto;
+      max-width: min(
+        1024px,
+        calc(100vw - 25vw)
+      ); // max of 1024px or 100vw - 25vw
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+  }
+
+  &__content {
+    @container layout-root (min-width: 769px) {
+      flex: 1;
+      max-width: calc(100% - 18rem); // 100% minus sidebar fixed width + gap
+    }
+  }
+
+  &__sidebar {
+    @container layout-root (min-width: 769px) {
+      width: 16rem; // Fixed width (256px)
+      flex-shrink: 0;
+      padding-top: 0; // Remove top padding to align with carousel
+    }
+
+    @container layout-root (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__greeting {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin: 0 0 1.5rem 0;
+    text-align: left;
+  }
+
+  &__mobile-gamification {
+    display: block;
+    margin: 2rem 0;
+    width: 100%;
+
+    @container layout-root (min-width: 769px) {
+      display: none;
+    }
+  }
+}
