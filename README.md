@@ -4,7 +4,7 @@ A React application for e-learning platform's student dashboard with real-time c
 
 ## Demo
 
-**Live Preview:** [https://react-d-learning.onrender.com/](https://react-online-learning-dashboard.onrender.com/)
+**Live Preview:** [https://react-online-learning-dashboard.onrender.com/](https://react-online-learning-dashboard.onrender.com/)
 
 ## Architecture
 
