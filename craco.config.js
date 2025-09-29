@@ -13,7 +13,7 @@ module.exports = {
           filename: "remoteEntry.js",
           exposes: {
             // Expose the LearningDashboard component
-            "./App": "./src/pages/Home",
+            "./App": "./src/pages/LearningDashboard",
           },
           shared: {
             ...deps,

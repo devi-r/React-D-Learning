@@ -2,7 +2,7 @@ import React from "react";
 import { useCourses } from "../../../hooks/useAPI";
 import EnrolledCourseCard from "../EnrolledCourseCard/EnrolledCourseCard";
 import EnrolledCourseCardSkeleton from "../EnrolledCourseCard/EnrolledCourseCardSkeleton";
-import ErrorMessage from "../../ErrorMessage/ErrorMessage";
+import ErrorMessage from "../../errorMessage/ErrorMessage";
 import "./EnrolledCourses.scss";
 
 const SectionHeader = ({ title }) => (

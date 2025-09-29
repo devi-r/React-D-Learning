@@ -2,7 +2,7 @@ import React from "react";
 import { useAssignments } from "../../../hooks/useAPI";
 import AssignmentCard from "../AssignmentCard/AssignmentCard";
 import AssignmentCardSkeleton from "../AssignmentCard/AssignmentCardSkeleton";
-import ErrorMessage from "../../ErrorMessage/ErrorMessage";
+import ErrorMessage from "../../errorMessage/ErrorMessage";
 import "./Assignments.scss";
 
 const SectionHeader = ({ title }) => (

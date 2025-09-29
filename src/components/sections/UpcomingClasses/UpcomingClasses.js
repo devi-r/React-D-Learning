@@ -4,8 +4,8 @@ import UpcomingClassCard from "../UpcomingClassCard/UpcomingClassCard";
 import UpcomingClassCardSkeleton from "../UpcomingClassCard/UpcomingClassCardSkeleton";
 import UpcomingClassesActionsSkeleton from "./UpcomingClassesActionsSkeleton";
 import UpcomingClassesIndicatorsSkeleton from "./UpcomingClassesIndicatorsSkeleton";
-import ErrorMessage from "../../ErrorMessage/ErrorMessage";
-import Carousel from "../../Carousel/Carousel";
+import ErrorMessage from "../../errorMessage/ErrorMessage";
+import Carousel from "../../carousel/Carousel";
 import "./UpcomingClasses.scss";
 
 const SectionHeader = ({ title }) => (

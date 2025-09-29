@@ -1,10 +1,12 @@
 import React from "react";
-import Home from "./pages/Home";
+import DashboardWrapper from "./components/dashboardWrapper/DashboardWrapper";
+import "./harness.css";
+import "./index.css";
 
 function App() {
   return (
     <div className="layout-root">
-      <Home />
+      <DashboardWrapper />
     </div>
   );
 }

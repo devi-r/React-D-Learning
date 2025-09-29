@@ -2,7 +2,7 @@ import React from "react";
 import { useTests } from "../../../hooks/useAPI";
 import SharedTestCard from "../SharedTestCard/SharedTestCard";
 import SharedTestCardSkeleton from "../SharedTestCard/SharedTestCardSkeleton";
-import ErrorMessage from "../../ErrorMessage/ErrorMessage";
+import ErrorMessage from "../../errorMessage/ErrorMessage";
 import "./SharedTests.scss";
 
 const SectionHeader = ({ title }) => (
