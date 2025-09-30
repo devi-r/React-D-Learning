@@ -6,9 +6,7 @@ import { ConfigProvider } from "../contexts/ConfigContext";
 function PostLoginDashboard() {
   return (
     <ConfigProvider>
-      <div className="layout-root">
-        <DashboardWrapper />
-      </div>
+      <DashboardWrapper />
     </ConfigProvider>
   );
 }
