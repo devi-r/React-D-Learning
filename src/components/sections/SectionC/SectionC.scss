@@ -1,0 +1,9 @@
+.section-c {
+  margin-bottom: 2rem;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

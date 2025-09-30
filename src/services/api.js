@@ -27,87 +27,65 @@ const apiCall = async (endpoint, options = {}) => {
   }
 };
 
-// Classes API
-export const classesAPI = {
-  // Get all classes
-  getAll: () => apiCall("/classes"),
-
-  // Get class by ID
-  getById: (id) => apiCall(`/classes/${id}`),
-
-  // Get classes by subject
-  getBySubject: (subject) => apiCall(`/classes/subject/${subject}`),
-
-  // Get classes by status
-  getByStatus: (status) => apiCall(`/classes/status/${status}`),
+// Section A API (formerly Classes)
+export const sectionAAPI = {
+  // Get all section A data
+  getAll: (productType) => {
+    const url = productType
+      ? `/post-login-dashboard/section-a?product_type=${productType}`
+      : "/post-login-dashboard/section-a";
+    return apiCall(url);
+  },
 };
 
-// Assignments API
-export const assignmentsAPI = {
-  // Get all assignments
-  getAll: () => apiCall("/assignments"),
-
-  // Get assignment by ID
-  getById: (id) => apiCall(`/assignments/${id}`),
-
-  // Get assignments by subject
-  getBySubject: (subject) => apiCall(`/assignments/subject/${subject}`),
-
-  // Get assignments by status
-  getByStatus: (status) => apiCall(`/assignments/status/${status}`),
-
-  // Get assignments by type
-  getByType: (type) => apiCall(`/assignments/type/${type}`),
+// Section B API (formerly Assignments)
+export const sectionBAPI = {
+  // Get all section B data
+  getAll: (productType) => {
+    const url = productType
+      ? `/post-login-dashboard/section-b?product_type=${productType}`
+      : "/post-login-dashboard/section-b";
+    return apiCall(url);
+  },
 };
 
-// Tests API
-export const testsAPI = {
-  // Get all tests
-  getAll: () => apiCall("/tests"),
-
-  // Get test by ID
-  getById: (id) => apiCall(`/tests/${id}`),
-
-  // Get tests by subject
-  getBySubject: (subject) => apiCall(`/tests/subject/${subject}`),
-
-  // Get tests by difficulty
-  getByDifficulty: (difficulty) => apiCall(`/tests/difficulty/${difficulty}`),
-
-  // Get tests by duration
-  getByDuration: (duration) => apiCall(`/tests/duration/${duration}`),
+// Section C API (formerly Tests)
+export const sectionCAPI = {
+  // Get all section C data
+  getAll: (productType) => {
+    const url = productType
+      ? `/post-login-dashboard/section-c?product_type=${productType}`
+      : "/post-login-dashboard/section-c";
+    return apiCall(url);
+  },
 };
 
-// Courses API
-export const coursesAPI = {
-  // Get all courses
-  getAll: () => apiCall("/courses"),
-
-  // Get course by ID
-  getById: (id) => apiCall(`/courses/${id}`),
-
-  // Get courses by subject
-  getBySubject: (subject) => apiCall(`/courses/subject/${subject}`),
-
-  // Get courses by status
-  getByStatus: (status) => apiCall(`/courses/status/${status}`),
-
-  // Get courses by instructor
-  getByInstructor: (instructor) => apiCall(`/courses/instructor/${instructor}`),
-
-  // Get courses by progress
-  getByProgress: (minProgress) => apiCall(`/courses/progress/${minProgress}`),
+// Section D API (formerly Courses)
+export const sectionDAPI = {
+  // Get all section D data
+  getAll: (productType) => {
+    const url = productType
+      ? `/post-login-dashboard/section-d?product_type=${productType}`
+      : "/post-login-dashboard/section-d";
+    return apiCall(url);
+  },
 };
 
-// Health check API
-export const healthAPI = {
-  check: () => apiCall("/health"),
+// Config API
+export const configAPI = {
+  // Get all config
+  getAll: (productType) => {
+    const url = productType
+      ? `/post-login-dashboard/config?product_type=${productType}`
+      : "/post-login-dashboard/config";
+    return apiCall(url);
+  },
 };
 
 export default {
-  classes: classesAPI,
-  assignments: assignmentsAPI,
-  tests: testsAPI,
-  courses: coursesAPI,
-  health: healthAPI,
+  sectionA: sectionAAPI,
+  sectionB: sectionBAPI,
+  sectionC: sectionCAPI,
+  sectionD: sectionDAPI,
+  config: configAPI,
 };

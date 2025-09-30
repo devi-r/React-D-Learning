@@ -1,0 +1,14 @@
+.section-d {
+  &__grid {
+    display: grid;
+    gap: 1.5rem;
+
+    // Mobile: 1 card per row (< 769px)
+    grid-template-columns: 1fr;
+
+    // Tablet and Desktop: 2 cards per row (≥ 768px)
+    @container layout-root (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

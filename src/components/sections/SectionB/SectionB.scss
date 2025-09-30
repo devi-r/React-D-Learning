@@ -1,0 +1,49 @@
+.section-b {
+  margin-bottom: 2rem;
+  width: 100%;
+  overflow: hidden;
+
+  &__grid {
+    display: grid;
+    gap: 1.5rem;
+    width: 100%;
+
+    // Mobile: 1 card per row (< 769px)
+    grid-template-columns: 1fr;
+
+    // Tablet and Desktop (≤1024px): Horizontal scroll with 3 cards
+    @container layout-root (min-width: 769px) and (max-width: 1024px) {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      padding-bottom: 0.5rem;
+      width: 100%;
+
+      // Hide scrollbar but keep functionality
+      scrollbar-width: thin;
+      scrollbar-color: #e5e7eb transparent;
+
+      &::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #e5e7eb;
+        border-radius: 3px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: #d1d5db;
+      }
+    }
+
+    // Large Desktop: 3 cards per row (> 1024px)
+    @container layout-root (min-width: 1025px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

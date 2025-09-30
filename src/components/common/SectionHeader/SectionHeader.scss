@@ -1,0 +1,42 @@
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin: 0;
+
+    @container layout-root (max-width: 768px) {
+      font-size: 1.125rem;
+    }
+  }
+
+  &__link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary-color, #a12850);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    @container layout-root (max-width: 768px) {
+      font-size: 0.8rem;
+    }
+
+    &:hover {
+      color: var(--primary-color, #a12850);
+      text-decoration: underline;
+    }
+
+    &:focus {
+      outline: 2px solid var(--primary-color, #a12850);
+      outline-offset: 2px;
+      border-radius: 0.25rem;
+    }
+  }
+}
+

@@ -41,91 +41,57 @@ export const useAPI = (apiFunction, dependencies = []) => {
   return { data, loading, error, refetch };
 };
 
-// Custom hook for classes
-export const useClasses = (filters = {}) => {
-  const { classesAPI } = require("../services/api");
+// Custom hook for sectionA
+export const useSectionA = (productType) => {
+  const { sectionAAPI } = require("../services/api");
 
   const apiFunction = async () => {
-    if (filters.subject) {
-      return await classesAPI.getBySubject(filters.subject);
-    }
-    if (filters.status) {
-      return await classesAPI.getByStatus(filters.status);
-    }
-    return await classesAPI.getAll();
+    return await sectionAAPI.getAll(productType);
   };
 
-  return useAPI(apiFunction, [filters.subject, filters.status]);
+  return useAPI(apiFunction, [productType]);
 };
 
-// Custom hook for assignments
-export const useAssignments = (filters = {}) => {
-  const { assignmentsAPI } = require("../services/api");
+// Custom hook for sectionB
+export const useSectionB = (productType) => {
+  const { sectionBAPI } = require("../services/api");
 
   const apiFunction = async () => {
-    if (filters.subject) {
-      return await assignmentsAPI.getBySubject(filters.subject);
-    }
-    if (filters.status) {
-      return await assignmentsAPI.getByStatus(filters.status);
-    }
-    if (filters.type) {
-      return await assignmentsAPI.getByType(filters.type);
-    }
-    return await assignmentsAPI.getAll();
+    return await sectionBAPI.getAll(productType);
   };
 
-  return useAPI(apiFunction, [filters.subject, filters.status, filters.type]);
+  return useAPI(apiFunction, [productType]);
 };
 
-// Custom hook for tests
-export const useTests = (filters = {}) => {
-  const { testsAPI } = require("../services/api");
+// Custom hook for sectionC
+export const useSectionC = (productType) => {
+  const { sectionCAPI } = require("../services/api");
 
   const apiFunction = async () => {
-    if (filters.subject) {
-      return await testsAPI.getBySubject(filters.subject);
-    }
-    if (filters.difficulty) {
-      return await testsAPI.getByDifficulty(filters.difficulty);
-    }
-    if (filters.duration) {
-      return await testsAPI.getByDuration(filters.duration);
-    }
-    return await testsAPI.getAll();
+    return await sectionCAPI.getAll(productType);
   };
 
-  return useAPI(apiFunction, [
-    filters.subject,
-    filters.difficulty,
-    filters.duration,
-  ]);
+  return useAPI(apiFunction, [productType]);
 };
 
-// Custom hook for courses
-export const useCourses = (filters = {}) => {
-  const { coursesAPI } = require("../services/api");
+// Custom hook for sectionD
+export const useSectionD = (productType) => {
+  const { sectionDAPI } = require("../services/api");
 
   const apiFunction = async () => {
-    if (filters.subject) {
-      return await coursesAPI.getBySubject(filters.subject);
-    }
-    if (filters.status) {
-      return await coursesAPI.getByStatus(filters.status);
-    }
-    if (filters.instructor) {
-      return await coursesAPI.getByInstructor(filters.instructor);
-    }
-    if (filters.minProgress !== undefined) {
-      return await coursesAPI.getByProgress(filters.minProgress);
-    }
-    return await coursesAPI.getAll();
+    return await sectionDAPI.getAll(productType);
   };
 
-  return useAPI(apiFunction, [
-    filters.subject,
-    filters.status,
-    filters.instructor,
-    filters.minProgress,
-  ]);
+  return useAPI(apiFunction, [productType]);
+};
+
+// Custom hook for config
+export const useConfig = (productType) => {
+  const { configAPI } = require("../services/api");
+
+  const apiFunction = async () => {
+    return await configAPI.getAll(productType);
+  };
+
+  return useAPI(apiFunction, [productType]);
 };

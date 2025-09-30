@@ -9,11 +9,11 @@ module.exports = {
 
       webpackConfig.plugins.push(
         new ModuleFederationPlugin({
-          name: "LearningDashboard", // The unique name for this remote
+          name: "PostloginDashboard", // The unique name for this remote
           filename: "remoteEntry.js",
           exposes: {
-            // Expose the LearningDashboard component
-            "./App": "./src/pages/LearningDashboard",
+            // Expose the PostloginDashboard component
+            "./App": "./src/pages/PostloginDashboard",
           },
           shared: {
             ...deps,

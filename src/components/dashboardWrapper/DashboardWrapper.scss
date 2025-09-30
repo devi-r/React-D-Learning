@@ -22,10 +22,14 @@
       width: auto;
       max-width: min(
         1024px,
-        calc(100vw - 25vw)
+        calc(100vw - 12vw)
       ); // max of 1024px or 100vw - 25vw
       margin: 0 auto;
       padding: 2rem 0;
+    }
+
+    @container layout-root (min-width: 1025px) {
+      max-width: min(1024px, calc(100vw - 25vw));
     }
   }
 
@@ -56,7 +60,7 @@
     text-align: left;
   }
 
-  &__mobile-gamification {
+  &__mobile-section-e {
     display: block;
     margin: 2rem 0;
     width: 100%;
