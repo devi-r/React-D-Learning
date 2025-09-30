@@ -1,21 +1,22 @@
-# React Online Learning Dashboard
+# React Post-Login Dashboard
 
-A React application for e-learning platform's student dashboard with real-time class management, assignments, tests, and course tracking.
+A dynamic React application for multi-product platform dashboard with real-time data, customizable themes, and product type switching capabilities.
 
 ## Demo
 
-**Live Preview:** [https://react-online-learning-dashboard.onrender.com/](https://react-online-learning-dashboard.onrender.com/)
+**Live Preview:** [https://react-post-login-dashboard.onrender.com/](https://react-post-login-dashboard.onrender.com/)
 
 ## Architecture
 
-This application is also configured as a **remote microfrontend** setup using CRACO (Create React App Configuration Override) and includes **container queries** for responsive styling. The microfrontend architecture allows this dashboard to be consumed by other applications while maintaining its own development and deployment lifecycle.
+This application is configured as a **remote microfrontend** setup using CRACO (Create React App Configuration Override) and includes **container queries** for responsive styling. The microfrontend architecture allows this dashboard to be consumed by other applications while maintaining its own development and deployment lifecycle.
 
 ## Features
 
-- **Live & Upcoming Classes** - Real-time class status with countdown timers
-- **Assignments**, **Tests**, **Courses** - Subject-based color coding
+### Core Dashboard Features
+
+- **Dynamic Sections** - Section A, Section B, Section C, Section D
+- **Real-time Timers** - Live countdown timers for upcoming events
 - **Skeleton Loading** - Smooth loading states to prevent layout shifts
-- **Real-time Updates** - Live class status updates with timers
 
 ## Getting Started
 
@@ -23,14 +24,14 @@ This application is also configured as a **remote microfrontend** setup using CR
 
 - Node.js (version 14 or higher)
 - npm or yarn
-- Backend server running on port 3001 (or production server)
+- Backend server running on port 4000 (or production server)
 
 ### Installation
 
 1. Navigate to the project directory:
 
    ```bash
-   cd <repo_name>
+   cd apps/react-post-login-dashboard
    ```
 
 2. Install dependencies:
@@ -45,19 +46,28 @@ This application is also configured as a **remote microfrontend** setup using CR
    npm start
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 ## API Integration
 
 The frontend automatically detects the environment and uses the appropriate backend URL:
 
-- **Development:** `http://localhost:3001` (when running `npm start`)
+- **Development:** `http://localhost:4000` (when running `npm start`)
 - **Production:** `https://express-mock-server-rose.vercel.app` (when built for production)
 
-- `GET /api/classes` - Fetch upcoming classes
-- `GET /api/assignments` - Fetch assignments
-- `GET /api/tests` - Fetch shared tests
-- `GET /api/courses` - Fetch enrolled courses
+### API Endpoints
+
+#### Configuration
+
+- `GET /api/post-login-dashboard/config` - Get dashboard configuration
+  - Query params: `product_type` (optional)
+
+#### Section Data APIs
+
+- `GET /api/post-login-dashboard/section-a` - Get section A data
+- `GET /api/post-login-dashboard/section-b` - Get section B data
+- `GET /api/post-login-dashboard/section-c` - Get section C data
+- `GET /api/post-login-dashboard/section-d` - Get section D data
 
 ## Author
 
