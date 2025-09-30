@@ -127,9 +127,9 @@ const Header = () => {
           <nav className="header__nav">
             {config.nav &&
               config.nav.map((item, index) => (
-                <a key={index} href="#" className="header__nav-item">
+                <button key={index} type="button" className="header__nav-item">
                   {item.title}
-                </a>
+                </button>
               ))}
           </nav>
         </div>
@@ -225,14 +225,14 @@ const Header = () => {
                 {/* Navigation Items */}
                 {config.nav &&
                   config.nav.map((item, index) => (
-                    <a
+                    <button
                       key={index}
-                      href="#"
+                      type="button"
                       className="header__mobile-dropdown-item"
                       onClick={closeMenu}
                     >
                       {item.title}
-                    </a>
+                    </button>
                   ))}
 
                 {/* Change View Options */}

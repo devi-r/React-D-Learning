@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import "./Carousel.scss";
 
@@ -19,6 +19,22 @@ const Carousel = ({
 
   const maxSlides = Math.max(0, items.length - itemsPerView);
 
+  const handlePrev = useCallback(() => {
+    if (currentSlide > 0 && !isTransitioning) {
+      setIsTransitioning(true);
+      setCurrentSlide((prev) => Math.max(0, prev - 1));
+      setTimeout(() => setIsTransitioning(false), 300);
+    }
+  }, [currentSlide, isTransitioning]);
+
+  const handleNext = useCallback(() => {
+    if (currentSlide < maxSlides && !isTransitioning) {
+      setIsTransitioning(true);
+      setCurrentSlide((prev) => Math.min(maxSlides, prev + 1));
+      setTimeout(() => setIsTransitioning(false), 300);
+    }
+  }, [currentSlide, maxSlides, isTransitioning]);
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -31,23 +47,7 @@ const Carousel = ({
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentSlide, itemsPerView]);
-
-  const handlePrev = () => {
-    if (currentSlide > 0 && !isTransitioning) {
-      setIsTransitioning(true);
-      setCurrentSlide((prev) => Math.max(0, prev - 1));
-      setTimeout(() => setIsTransitioning(false), 300);
-    }
-  };
-
-  const handleNext = () => {
-    if (currentSlide < maxSlides && !isTransitioning) {
-      setIsTransitioning(true);
-      setCurrentSlide((prev) => Math.min(maxSlides, prev + 1));
-      setTimeout(() => setIsTransitioning(false), 300);
-    }
-  };
+  }, [handleNext, handlePrev]);
 
   // Touch/swipe handlers
   const handleTouchStart = (e) => {

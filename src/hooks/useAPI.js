@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 // Custom hook for API calls with loading and error states
 export const useAPI = (apiFunction, dependencies = []) => {
@@ -6,23 +6,24 @@ export const useAPI = (apiFunction, dependencies = []) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const result = await apiFunction();
-        setData(result);
-      } catch (err) {
-        setError(err.message || "An error occurred");
-        console.error("API call failed:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchData = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const result = await apiFunction();
+      setData(result);
+    } catch (err) {
+      setError(err.message || "An error occurred");
+      console.error("API call failed:", err);
+    } finally {
+      setLoading(false);
+    }
+  }, [apiFunction]);
 
+  useEffect(() => {
     fetchData();
-  }, dependencies);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fetchData, ...dependencies]);
 
   const refetch = async () => {
     try {
@@ -45,9 +46,9 @@ export const useAPI = (apiFunction, dependencies = []) => {
 export const useSectionA = (productType) => {
   const { sectionAAPI } = require("../services/api");
 
-  const apiFunction = async () => {
+  const apiFunction = useCallback(async () => {
     return await sectionAAPI.getAll(productType);
-  };
+  }, [productType, sectionAAPI]);
 
   return useAPI(apiFunction, [productType]);
 };
@@ -56,9 +57,9 @@ export const useSectionA = (productType) => {
 export const useSectionB = (productType) => {
   const { sectionBAPI } = require("../services/api");
 
-  const apiFunction = async () => {
+  const apiFunction = useCallback(async () => {
     return await sectionBAPI.getAll(productType);
-  };
+  }, [productType, sectionBAPI]);
 
   return useAPI(apiFunction, [productType]);
 };
@@ -67,9 +68,9 @@ export const useSectionB = (productType) => {
 export const useSectionC = (productType) => {
   const { sectionCAPI } = require("../services/api");
 
-  const apiFunction = async () => {
+  const apiFunction = useCallback(async () => {
     return await sectionCAPI.getAll(productType);
-  };
+  }, [productType, sectionCAPI]);
 
   return useAPI(apiFunction, [productType]);
 };
@@ -78,9 +79,9 @@ export const useSectionC = (productType) => {
 export const useSectionD = (productType) => {
   const { sectionDAPI } = require("../services/api");
 
-  const apiFunction = async () => {
+  const apiFunction = useCallback(async () => {
     return await sectionDAPI.getAll(productType);
-  };
+  }, [productType, sectionDAPI]);
 
   return useAPI(apiFunction, [productType]);
 };
@@ -89,9 +90,9 @@ export const useSectionD = (productType) => {
 export const useConfig = (productType) => {
   const { configAPI } = require("../services/api");
 
-  const apiFunction = async () => {
+  const apiFunction = useCallback(async () => {
     return await configAPI.getAll(productType);
-  };
+  }, [productType, configAPI]);
 
   return useAPI(apiFunction, [productType]);
 };

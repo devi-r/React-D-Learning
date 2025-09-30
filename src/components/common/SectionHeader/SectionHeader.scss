@@ -16,27 +16,29 @@
   }
 
   &__link {
+    background: none;
+    border: none;
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--primary-color, #a12850);
     text-decoration: none;
     cursor: pointer;
     transition: color 0.2s ease;
+    font-family: inherit;
+    padding: 0;
 
     @container layout-root (max-width: 768px) {
       font-size: 0.8rem;
     }
 
     &:hover {
-      color: var(--primary-color, #a12850);
-      text-decoration: underline;
+      opacity: 0.8;
     }
 
     &:focus {
-      outline: 2px solid var(--primary-color, #a12850);
+      outline: none;
       outline-offset: 2px;
       border-radius: 0.25rem;
     }
   }
 }
-

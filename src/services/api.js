@@ -82,10 +82,12 @@ export const configAPI = {
   },
 };
 
-export default {
+const api = {
   sectionA: sectionAAPI,
   sectionB: sectionBAPI,
   sectionC: sectionCAPI,
   sectionD: sectionDAPI,
   config: configAPI,
 };
+
+export default api;

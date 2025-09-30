@@ -24,18 +24,17 @@ const SectionHeader = ({ title, ctaText, onCtaClick, loading = false }) => {
     <div className="section-header">
       <h2 className="section-header__title">{title}</h2>
       {ctaText && (
-        <a
-          href="#"
+        <button
+          type="button"
           className="section-header__link"
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() => {
             if (onCtaClick) {
               onCtaClick();
             }
           }}
         >
           {ctaText}
-        </a>
+        </button>
       )}
     </div>
   );
