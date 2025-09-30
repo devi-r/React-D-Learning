@@ -9,7 +9,11 @@ import "./SectionD.scss";
 
 const SectionD = () => {
   // Get current product type from context
-  const { config, currentProductType } = useConfigData();
+  const {
+    config,
+    currentProductType,
+    loading: configLoading,
+  } = useConfigData();
 
   // Fetch courses data from API with current product type
   const {
@@ -62,6 +66,7 @@ const SectionD = () => {
       <SectionHeader
         title={config.section_d_title}
         ctaText={config.section_d_cta_text}
+        loading={configLoading || !config}
       />
       {renderContent()}
     </div>

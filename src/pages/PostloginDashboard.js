@@ -2,8 +2,8 @@ import React from "react";
 import DashboardWrapper from "../components/dashboardWrapper/DashboardWrapper";
 import "../index.css";
 
-function PostloginDashboard() {
+function PostLoginDashboard() {
   return <DashboardWrapper />;
 }
 
-export default PostloginDashboard;
+export default PostLoginDashboard;

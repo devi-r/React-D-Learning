@@ -9,7 +9,11 @@ import "./SectionC.scss";
 
 const SectionC = () => {
   // Get current product type from context
-  const { config, currentProductType } = useConfigData();
+  const {
+    config,
+    currentProductType,
+    loading: configLoading,
+  } = useConfigData();
 
   // Fetch tests data from API with current product type
   const {
@@ -62,6 +66,7 @@ const SectionC = () => {
       <SectionHeader
         title={config.section_c_title}
         ctaText={config.section_c_cta_text}
+        loading={configLoading || !config}
       />
       {renderContent()}
     </div>

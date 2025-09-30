@@ -14,6 +14,7 @@ import {
 import { useConfigData } from "../../contexts/ConfigContext";
 import ColorPicker from "../colorPicker/ColorPicker";
 import ProductTypeSelector from "../productTypeSelector/ProductTypeSelector";
+import Skeleton from "../skeleton/Skeleton";
 import "./Header.scss";
 
 const Header = () => {
@@ -23,8 +24,13 @@ const Header = () => {
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
   const [isProductTypeSelectorOpen, setIsProductTypeSelectorOpen] =
     useState(false);
-  const { config, currentProductType, changeProductType, productTypes } =
-    useConfigData();
+  const {
+    config,
+    currentProductType,
+    changeProductType,
+    productTypes,
+    loading,
+  } = useConfigData();
   const changeViewRef = useRef(null);
 
   const toggleMenu = () => {
@@ -90,17 +96,41 @@ const Header = () => {
     };
   }, []);
 
+  // Show loading state or return early if config is not loaded
+  if (loading || !config) {
+    return (
+      <header className="header">
+        <div className="header__left">
+          <Skeleton
+            width="120px"
+            height="28px"
+            className="header__logo-skeleton"
+          />
+          <nav className="header__nav">
+            <Skeleton width="200px" height="20px" />
+          </nav>
+        </div>
+        <div className="header__right">
+          <div className="header__user">
+            <MdPerson className="header__user-icon" size={28} />
+          </div>
+        </div>
+      </header>
+    );
+  }
+
   return (
     <>
       <header className="header">
         <div className="header__left">
-          <h1 className="header__logo">{config.brand}</h1>
+          <h1 className="header__logo">{config.brand || "Dashboard"}</h1>
           <nav className="header__nav">
-            {config.nav.map((item, index) => (
-              <a key={index} href="#" className="header__nav-item">
-                {item.title}
-              </a>
-            ))}
+            {config.nav &&
+              config.nav.map((item, index) => (
+                <a key={index} href="#" className="header__nav-item">
+                  {item.title}
+                </a>
+              ))}
           </nav>
         </div>
         <div className="header__right">
@@ -144,7 +174,11 @@ const Header = () => {
 
           <button className="header__wallet-btn">
             <MdStars size={20} />
-            <span>{config.nav_button[0].label}</span>
+            <span>
+              {config.nav_button && config.nav_button[0]
+                ? config.nav_button[0].label
+                : "Points"}
+            </span>
           </button>
 
           <MdNotifications className="header__notification-icon" size={24} />
@@ -180,21 +214,26 @@ const Header = () => {
                   </div>
                   <button className="header__mobile-dropdown-points-btn">
                     <MdStars size={16} />
-                    <span>{config.nav_button[0].label}</span>
+                    <span>
+                      {config.nav_button && config.nav_button[0]
+                        ? config.nav_button[0].label
+                        : "Points"}
+                    </span>
                   </button>
                 </div>
 
                 {/* Navigation Items */}
-                {config.nav.map((item, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className="header__mobile-dropdown-item"
-                    onClick={closeMenu}
-                  >
-                    {item.title}
-                  </a>
-                ))}
+                {config.nav &&
+                  config.nav.map((item, index) => (
+                    <a
+                      key={index}
+                      href="#"
+                      className="header__mobile-dropdown-item"
+                      onClick={closeMenu}
+                    >
+                      {item.title}
+                    </a>
+                  ))}
 
                 {/* Change View Options */}
                 <div className="header__mobile-dropdown-change-view">

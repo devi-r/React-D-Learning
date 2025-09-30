@@ -1,0 +1,96 @@
+.full-page-error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+  }
+
+  &__icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin: 0 0 1rem 0;
+  }
+
+  &__message {
+    color: #6b7280;
+    font-size: 1.1rem;
+    margin: 0 0 2rem 0;
+    line-height: 1.5;
+  }
+
+  &__retry-btn {
+    background-color: #1f2937;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #374151;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus {
+      outline: 2px solid #1f2937;
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .full-page-error {
+    background-color: #111827;
+
+    &__title {
+      color: #f9fafb;
+    }
+
+    &__message {
+      color: #d1d5db;
+    }
+
+    &__retry-btn {
+      background-color: #f9fafb;
+      color: #111827;
+
+      &:hover {
+        background-color: #e5e7eb;
+      }
+
+      &:focus {
+        outline-color: #f9fafb;
+      }
+    }
+  }
+}

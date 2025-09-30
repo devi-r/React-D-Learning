@@ -7,17 +7,24 @@ import SectionD from "../sections/SectionD/SectionD";
 import SectionE from "../sections/SectionE/SectionE";
 import FloatingButton from "../sections/FloatingButton/FloatingButton";
 import { useConfigData } from "../../contexts/ConfigContext";
+import Skeleton from "../skeleton/Skeleton";
 import "./DashboardWrapper.scss";
 
 const DashboardWrapper = () => {
-  const { config } = useConfigData();
+  const { config, loading } = useConfigData();
 
   return (
     <div className="dashboard-wrapper">
       <Header />
       <main className="dashboard-wrapper__main">
         <div className="dashboard-wrapper__content">
-          <h1 className="dashboard-wrapper__greeting">{config.page_title}</h1>
+          <h1 className="dashboard-wrapper__greeting">
+            {loading || !config ? (
+              <Skeleton width="300px" height="30px" />
+            ) : (
+              config.page_title
+            )}
+          </h1>
 
           <SectionA />
           <SectionB />

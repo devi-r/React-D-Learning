@@ -1,10 +1,26 @@
 import React from "react";
 import { MdStars } from "react-icons/md";
 import { useConfigData } from "../../../contexts/ConfigContext";
+import Skeleton from "../../skeleton/Skeleton";
 import "./SectionE.scss";
 
 const SectionE = () => {
-  const { config } = useConfigData();
+  const { config, loading: configLoading } = useConfigData();
+
+  if (configLoading || !config) {
+    return (
+      <div className="section-e">
+        <div className="section-e__header">
+          <div className="section-e__icon">
+            <MdStars className="section-e__icon-svg" size={21} />
+          </div>
+          <Skeleton width="120px" height="18px" />
+        </div>
+        <Skeleton width="100%" height="40px" />
+        <Skeleton width="100%" height="44px" />
+      </div>
+    );
+  }
 
   return (
     <>

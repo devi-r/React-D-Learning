@@ -1,4 +1,4 @@
-// API service for D-Learning application
+// API service for Post Login Dashboard application
 const API_BASE_URL =
   process.env.NODE_ENV === "production"
     ? "https://express-mock-server-rose.vercel.app/api"
