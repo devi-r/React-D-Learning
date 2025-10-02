@@ -25,11 +25,12 @@
         calc(100vw - 12vw)
       ); // max of 1024px or 100vw - 25vw
       margin: 0 auto;
-      padding: 2rem 0;
+      padding: 2rem;
     }
 
     @container layout-root (min-width: 1025px) {
       max-width: min(1024px, calc(100vw - 25vw));
+      padding: 2rem;
     }
   }
 
