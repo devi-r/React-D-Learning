@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { getSubjectCSSVars } from "../../../utils/subjectColors";
+import { getColorCSSVars } from "../../../utils/colors";
 import useEventTimer from "../../../hooks/useEventTimer";
 import "./SectionACard.scss";
 
 const SectionACard = ({ classInfo }) => {
   const [imageError, setImageError] = useState(false);
-  const subjectStyles = getSubjectCSSVars(classInfo.subject);
+  const colorStyles = getColorCSSVars(classInfo.color_tag);
   const { status, countdown } = useEventTimer(
     classInfo.startTime,
     classInfo.endTime
@@ -65,12 +65,12 @@ const SectionACard = ({ classInfo }) => {
   };
 
   return (
-    <div className="section-a-card" style={subjectStyles}>
+    <div className="section-a-card" style={colorStyles}>
       <div className="section-a-card__overlay">
         <div className="section-a-card__content">
           <div className="section-a-card__badges">
-            <span className="section-a-card__badge section-a-card__badge--subject">
-              {classInfo.subject}
+            <span className="section-a-card__badge section-a-card__badge--color">
+              {classInfo.subject_tag}
             </span>
             {getStatusBadge()}
           </div>

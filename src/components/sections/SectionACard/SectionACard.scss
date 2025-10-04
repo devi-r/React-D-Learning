@@ -6,9 +6,10 @@
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   background: linear-gradient(
-    135deg,
-    var(--subject-primary, #3b82f6) 0%,
-    var(--subject-accent, #1d4ed8) 100%
+    90deg,
+    var(--color-primary, #3b82f6) 0%,
+    var(--color-accent, #1d4ed8) 50%,
+    var(--color-secondary, #f3f4f6) 100%
   );
 
   &:hover {
@@ -91,9 +92,9 @@
       backdrop-filter: blur(10px);
     }
 
-    &--subject {
-      background-color: var(--subject-secondary, rgba(255, 255, 255, 0.2));
-      color: var(--subject-text, white);
+    &--color {
+      background-color: var(--color-secondary, rgba(255, 255, 255, 0.2));
+      color: var(--color-text, white);
       backdrop-filter: blur(10px);
     }
   }

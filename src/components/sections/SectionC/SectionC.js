@@ -38,7 +38,7 @@ const SectionC = () => {
     if (error) {
       return (
         <ErrorMessage
-          message={`Failed to load tests: ${error}`}
+          message={`Failed to load daat: ${error}`}
           onRetry={refetch}
         />
       );
@@ -47,7 +47,7 @@ const SectionC = () => {
     if (!sectionCData || sectionCData.length === 0) {
       return (
         <div className="section-c__empty">
-          <p>No tests found.</p>
+          <p>No daat found.</p>
         </div>
       );
     }

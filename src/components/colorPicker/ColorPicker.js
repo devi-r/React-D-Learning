@@ -17,7 +17,7 @@ const ColorPicker = ({ isOpen, onClose, onColorSelect }) => {
           </div>
           <div className="color-picker__content">
             <DarkHexColorPicker
-              radius={6}
+              radius={4}
               onColorSelect={onColorSelect}
               selectedColor="#a12850"
             />

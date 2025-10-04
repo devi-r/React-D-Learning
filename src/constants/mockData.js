@@ -1,4 +1,4 @@
-export const subjectIcons = {
+export const colorIcons = {
   CHM: {
     icon: "MdScience",
     color: "orange",

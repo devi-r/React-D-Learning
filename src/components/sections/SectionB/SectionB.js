@@ -38,7 +38,7 @@ const SectionB = () => {
     if (error) {
       return (
         <ErrorMessage
-          message={`Failed to load assignments: ${error}`}
+          message={`Failed to load data: ${error}`}
           onRetry={refetch}
         />
       );
@@ -47,7 +47,7 @@ const SectionB = () => {
     if (!sectionBData || sectionBData.length === 0) {
       return (
         <div className="section-b__empty">
-          <p>No assignments found.</p>
+          <p>No data found.</p>
         </div>
       );
     }

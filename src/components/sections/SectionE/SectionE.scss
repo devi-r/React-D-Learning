@@ -1,9 +1,10 @@
 .section-e {
+  background: #bf416b;
   background: linear-gradient(
     90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 65%,
-    rgba(36, 108, 133, 1) 100%
+    rgba(191, 65, 107, 1) 0%,
+    rgba(161, 40, 80, 1) 50%,
+    rgba(184, 29, 81, 1) 100%
   );
   border-radius: 0.5rem;
   padding: 1.5rem;
@@ -34,7 +35,7 @@
   }
 
   &__icon-svg {
-    color: #ffd700;
+    color: #facc48;
   }
 
   &__title {
@@ -46,6 +47,7 @@
 
   &__description {
     font-size: 0.85rem;
+    font-weight: 600;
     margin: 0 0 1rem 0;
     line-height: 1.5;
     opacity: 0.9;
@@ -53,7 +55,7 @@
   }
 
   &__cta {
-    background-color: #ffd700;
+    background-color: #facc48;
     color: #333;
     font-weight: bold;
     padding: 0.75rem 1.5rem;

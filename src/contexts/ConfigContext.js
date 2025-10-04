@@ -5,7 +5,7 @@ import FullPageErrorMessage from "../components/errorMessage/FullPageErrorMessag
 const ConfigContext = createContext();
 
 export const ConfigProvider = ({ children }) => {
-  const [currentProductType, setCurrentProductType] = useState("learning");
+  const [currentProductType, setCurrentProductType] = useState("design");
   const {
     data: configData,
     loading,

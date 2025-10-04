@@ -1,13 +1,13 @@
 import React from "react";
 import { MdMenuBook } from "react-icons/md";
-import { getSubjectCSSVars } from "../../../utils/subjectColors";
+import { getColorCSSVars } from "../../../utils/colors";
 import "./SectionDCard.scss";
 
 const SectionDCard = ({ course }) => {
-  const subjectStyles = getSubjectCSSVars(course.subject);
+  const colorStyles = getColorCSSVars(course.color_tag);
 
   return (
-    <div className="section-d-card" style={subjectStyles}>
+    <div className="section-d-card" style={colorStyles}>
       <div className="section-d-card__content">
         <div className="section-d-card__icon">
           <MdMenuBook className="section-d-card__icon-svg" size={20} />

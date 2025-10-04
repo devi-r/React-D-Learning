@@ -38,7 +38,7 @@ const SectionD = () => {
     if (error) {
       return (
         <ErrorMessage
-          message={`Failed to load courses: ${error}`}
+          message={`Failed to load data: ${error}`}
           onRetry={refetch}
         />
       );
@@ -47,7 +47,7 @@ const SectionD = () => {
     if (!sectionDData || sectionDData.length === 0) {
       return (
         <div className="section-d__empty">
-          <p>No enrolled courses found.</p>
+          <p>No data found.</p>
         </div>
       );
     }

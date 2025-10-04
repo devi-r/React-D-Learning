@@ -48,7 +48,7 @@ const SectionA = () => {
     if (error) {
       return (
         <ErrorMessage
-          message={`Failed to load events: ${error}`}
+          message={`Failed to load data: ${error}`}
           onRetry={refetch}
         />
       );
@@ -57,7 +57,7 @@ const SectionA = () => {
     if (!sectionAData || sectionAData.length === 0) {
       return (
         <div className="section-a__empty">
-          <p>No upcoming events found.</p>
+          <p>No daat found.</p>
         </div>
       );
     }
