@@ -22,7 +22,6 @@ export const ConfigProvider = ({ children }) => {
         "--primary-color",
         config.primary_color
       );
-      console.log("Primary color set from config:", config.primary_color);
     }
   }, [config.primary_color]);
 
